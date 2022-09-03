@@ -9,6 +9,7 @@ const bikeSchema = new Schema({
   },
   image: {
     type: String,
+    unique: true,
     required: true
   },
   url: {

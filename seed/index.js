@@ -1,13 +1,26 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-// Import the model
+const Bike = require('../models/Bike')
 
 // Place the array you want to seed
+const bikes = [
+  {  
+    name: " ",
+    image:" ",
+    url: " ",
+    description: " ",
+    terrain: " ",
+    biketype: " ",
+    material: " ",
+    price: " "
+  },
+]
+
 
 mongoose.connect(process.env.MONGO_URL)
   .then(x => console.log(`Connected to ${x.connection.name}`))
   .then(() => {
-    return // Model.create(array)
+    return Bike.create(bikes)
   })
   .then(() => {
     console.log('Seed done 🌱');

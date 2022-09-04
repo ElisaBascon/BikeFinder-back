@@ -2,7 +2,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const Bike = require('../models/Bike')
 
-// Place the array you want to seed
 const bikes = [
   {  
     name: "ORBEA TERRA H",

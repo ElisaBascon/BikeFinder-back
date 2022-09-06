@@ -3,8 +3,9 @@ const { Schema, model } = mongoose;
 
 const reviewSchema = new Schema({
   userId: {
-    type: ObjectId,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true
   },
   image: {
     type: String,

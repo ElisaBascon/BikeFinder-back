@@ -3,13 +3,13 @@ const Bike = require('../models/Bike');
 const ErrorResponse = require('../utils/error');
 
 // @desc    GET all the bikes
-// @route   GET /api/v1/
+// @route   GET /api/v1/bike
 // @access  Public
 router.get('/', async (req, res, next) => {
     try {
       const bikes = await Bike.find({});
       if(!bikes) {
-        next(new ErrorResponse('No bikes found', 404));
+        next(new ErrorResponse('No bikes found', 204));
       } 
       res.status(200).json({ data: bikes })
     } catch (error) {
@@ -23,11 +23,11 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
-      const bikes = await Bike.findById(id);
-      if(!bikes) {
+      const bike = await Bike.findById(id);
+      if(!bike) {
         next(new ErrorResponse('Bike not found', 404));
       } 
-      res.status(200).json({ data: bikes })
+      res.status(200).json({ data: bike })
     } catch (error) {
         next(error);
     }

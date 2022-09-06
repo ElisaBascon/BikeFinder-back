@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
     try {
       const reviews = await Review.find({});
       if(!reviews) {
-        next(new ErrorResponse('No reviews found', 404));
+        next(new ErrorResponse('No reviews found', 204));
       } 
       res.status(200).json({ data: reviews })
     } catch (error) {
@@ -23,11 +23,11 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
-      const reviews = await Review.findById(id);
-      if(!reviews) {
+      const review = await Review.findById(id);
+      if(!review) {
         next(new ErrorResponse('Review not found', 404));
       } 
-      res.status(200).json({ data: reviews })
+      res.status(200).json({ data: review })
     } catch (error) {
         next(error);
     }
@@ -39,11 +39,11 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     const { image, title, description } = req.body;
     try {
-      const reviews = await Review.create({ image, title, description });
-      if(!reviews) {
+      const review = await Review.create({ image, title, description });
+      if(!review) {
         next(new ErrorResponse('A error ocurred while creating the review', 500));
       } 
-      res.status(201).json({ data: reviews })
+      res.status(201).json({ data: review })
     } catch (error) {
         next(error);
     }
@@ -56,12 +56,12 @@ router.put('/:id', async (req, res, next) => {
     const { id } = req.params;
     const { image, title, description } = req.body;
     try {
-        const reviews = await Review.findById(id);
-        if(!reviews) {
-          next(new ErrorResponse(`Project not found by ${id}`, 404));
+        const review = await Review.findById(id);
+        if(!review) {
+          next(new ErrorResponse(`Review not found by ${id}`, 404));
         } else {
-            const updateReview = await Review.findByIdAndUpdate(id, { image, title, description }, {new: true});
-            res.status(202).json({ data: updateReview })
+            const updatedReview = await Review.findByIdAndUpdate(id, { image, title, description }, {new: true});
+            res.status(202).json({ data: updatedReview })
         }
       } catch (error) {
         next(error);
@@ -74,9 +74,9 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
-        const reviews = await Review.findById(id);
-        if(!reviews) {
-          next(new ErrorResponse(`Project not found by ${id}`, 404));
+        const review = await Review.findById(id);
+        if(!review) {
+          next(new ErrorResponse(`Review not found by ${id}`, 404));
         } else {
             const deleted = await Review.findByIdAndDelete(id);
             res.status(202).json({ data: deleted })

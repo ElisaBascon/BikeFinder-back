@@ -18,8 +18,8 @@ const bikeFinderSchema = new Schema({
     required: true
   },
   price: {
-    type: Number,
-    enum: ['medium', 'hight'],
+    type: String,
+    enum: ['low', 'medium', 'high'],
     required: true
   }
   

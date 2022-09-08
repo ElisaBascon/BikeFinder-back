@@ -120,4 +120,5 @@ mongoose.connect(process.env.MONGO_URL)
     mongoose.connection.close();
   })
 
+
 // Run npm run seed 

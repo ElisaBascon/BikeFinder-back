@@ -27,7 +27,7 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
-        const review = await User.findById(id);
+        const user = await User.findById(id);
         if(!user) {
           next(new ErrorResponse(`User not found by ${id}`, 404));
         } else {

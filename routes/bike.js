@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const Bike = require('../models/Bike');
 const ErrorResponse = require('../utils/error');
+const { isAuthenticated } = require('../middlewares/jwt')  
 
 // @desc    GET all the bikes
 // @route   GET /api/v1/bike
 // @access  Public
-router.get('/', async (req, res, next) => {
+router.get('/', isAuthenticated, async (req, res, next) => {
     try {
       const bikes = await Bike.find({});
       if(!bikes) {

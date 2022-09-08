@@ -8,8 +8,8 @@ const ErrorResponse = require('../utils/error');
 router.get('/', async (req, res, next) => {
     try {
       const reviews = await Review.find({});
-      if(!reviews) {
-        next(new ErrorResponse('No reviews found', 204));
+      if(!reviews.length) {
+        return next(new ErrorResponse('No reviews found', 204));
       } 
       res.status(200).json({ data: reviews })
     } catch (error) {

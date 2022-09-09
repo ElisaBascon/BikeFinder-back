@@ -11,7 +11,7 @@ router.put('/:id', async (req, res, next) => {
     try {
         const user = await User.findById(id);
         if(!user) {
-          next(new ErrorResponse(`User not found by ${id}`, 404));
+          return next(new ErrorResponse(`User not found by ${id}`, 404));
         } else {
             const updatedUser = await User.findByIdAndUpdate(id, { email, hashedPassword, username }, {new: true});
             res.status(202).json({ data: updatedUser })
@@ -29,7 +29,7 @@ router.delete('/:id', async (req, res, next) => {
     try {
         const user = await User.findById(id);
         if(!user) {
-          next(new ErrorResponse(`User not found by ${id}`, 404));
+          return next(new ErrorResponse(`User not found by ${id}`, 404));
         } else {
             const deleted = await User.findByIdAndDelete(id);
             res.status(202).json({ data: deleted })

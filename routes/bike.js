@@ -10,7 +10,7 @@ router.get('/', isAuthenticated, async (req, res, next) => {
     try {
       const bikes = await Bike.find({});
       if(!bikes) {
-        next(new ErrorResponse('No bikes found', 204));
+        return next(new ErrorResponse('No bikes found', 204));
       } 
       res.status(200).json({ data: bikes })
     } catch (error) {
@@ -26,7 +26,7 @@ router.get('/:id', async (req, res, next) => {
     try {
       const bike = await Bike.findById(id);
       if(!bike) {
-        next(new ErrorResponse('Bike not found', 404));
+        return next(new ErrorResponse('Bike not found', 404));
       } 
       res.status(200).json({ data: bike })
     } catch (error) {

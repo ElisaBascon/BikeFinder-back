@@ -25,7 +25,7 @@ router.get('/:id', async (req, res, next) => {
     try {
       const review = await Review.findById(id);
       if(!review) {
-        next(new ErrorResponse('Review not found', 404));
+        return next(new ErrorResponse('Review not found', 404));
       } 
       res.status(200).json({ data: review })
     } catch (error) {
@@ -41,7 +41,7 @@ router.post('/', async (req, res, next) => {
     try {
       const review = await Review.create({ image, title, description });
       if(!review) {
-        next(new ErrorResponse('A error ocurred while creating the review', 500));
+        return next(new ErrorResponse('A error ocurred while creating the review', 500));
       } 
       res.status(201).json({ data: review })
     } catch (error) {
@@ -58,7 +58,7 @@ router.put('/:id', async (req, res, next) => {
     try {
         const review = await Review.findById(id);
         if(!review) {
-          next(new ErrorResponse(`Review not found by ${id}`, 404));
+          return next(new ErrorResponse(`Review not found by ${id}`, 404));
         } else {
             const updatedReview = await Review.findByIdAndUpdate(id, { image, title, description }, {new: true});
             res.status(202).json({ data: updatedReview })
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res, next) => {
     try {
         const review = await Review.findById(id);
         if(!review) {
-          next(new ErrorResponse(`Review not found by ${id}`, 404));
+          return next(new ErrorResponse(`Review not found by ${id}`, 404));
         } else {
             const deleted = await Review.findByIdAndDelete(id);
             res.status(202).json({ data: deleted })

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Review = require('../models/Review');
 const ErrorResponse = require('../utils/error');
+const { isAuthenticated } = require('../middlewares/jwt')  
 
 // @desc    GET all the review
 // @route   GET /api/v1/
@@ -36,10 +37,11 @@ router.get('/:id', async (req, res, next) => {
 // @desc    Create a review
 // @route   POST /api/v1/
 // @access  Public
-router.post('/', async (req, res, next) => {
+router.post('/', isAuthenticated, async (req, res, next) => {
     const { image, title, description } = req.body;
+    const userId = req.payload._id;
     try {
-      const review = await Review.create({ image, title, description });
+      const review = await Review.create({ userId: userId, image, title, description });
       if(!review) {
         return next(new ErrorResponse('A error ocurred while creating the review', 500));
       } 

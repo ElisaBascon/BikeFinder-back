@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const ErrorResponse = require('../utils/error');
+const { isAuthenticated } = require('../middlewares/jwt')
 
 // @desc    Edit User
 // @route   PUT /api/v1/
 // @access  Public
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', isAuthenticated, async (req, res, next) => {
     const { id } = req.params;
     const { email, hashedPassword, username } = req.body;
     try {
@@ -24,7 +25,7 @@ router.put('/:id', async (req, res, next) => {
 // @desc    Delete User
 // @route   DELETE /api/v1/
 // @access  Public
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isAuthenticated, async (req, res, next) => {
     const { id } = req.params;
     try {
         const user = await User.findById(id);

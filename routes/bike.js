@@ -21,7 +21,7 @@ router.get('/', isAuthenticated, async (req, res, next) => {
 // @desc    GET single bike
 // @route   GET /api/v1/
 // @access  Public
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', isAuthenticated, async (req, res, next) => {
     const { id } = req.params;
     try {
       const bike = await Bike.findById(id);

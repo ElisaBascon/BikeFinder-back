@@ -6,7 +6,7 @@ const { isAuthenticated } = require('../middlewares/jwt')
 // @desc    GET all the review
 // @route   GET /api/v1/
 // @access  Public
-router.get('/', async (req, res, next) => {
+router.get('/', isAuthenticated , async (req, res, next) => {
     try {
       const reviews = await Review.find({});
       if(!reviews.length) {
@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
 // @desc    GET single review
 // @route   GET /api/v1/
 // @access  Public
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', isAuthenticated , async (req, res, next) => {
     const { id } = req.params;
     try {
       const review = await Review.findById(id);
@@ -54,7 +54,7 @@ router.post('/', isAuthenticated, async (req, res, next) => {
 // @desc    Edit a review
 // @route   PUT /api/v1/
 // @access  Public
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', isAuthenticated, async (req, res, next) => {
     const { id } = req.params;
     const { image, title, description } = req.body;
     try {
@@ -73,7 +73,7 @@ router.put('/:id', async (req, res, next) => {
 // @desc    Delete a review
 // @route   DELETE /api/v1/
 // @access  Public
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isAuthenticated, async (req, res, next) => {
     const { id } = req.params;
     try {
         const review = await Review.findById(id);

@@ -35,7 +35,7 @@ router.delete('/', isAuthenticated, async (req, res, next) => {
         } else {
             const deletedReview = await Review.deleteMany({userId});
             const deletedUser = await User.findByIdAndDelete(userId);
-            res.status(202)
+            res.status(202).json({ data: deletedReview, deletedUser })
         }
       } catch (error) {
         next(error);

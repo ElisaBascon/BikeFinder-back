@@ -34,14 +34,25 @@ router.get('/:id', isAuthenticated , async (req, res, next) => {
     }
 });
 
+// @desc    Upload a picture to Cloudinary
+// @route   POST /api/v1/review/upload
+// @access  Public
+router.post("/upload", fileUploader.single("imageUrl"), (req, res, next) => {
+  if (!req.file) {
+    next(new ErrorResponse('Error uploading the image', 500));
+    return;
+  }
+  res.json({ fileUrl: req.file.path });
+});
+
 // @desc    Create a review
-// @route   POST /api/v1/
+// @route   POST /api/v1/review
 // @access  Public
 router.post('/', isAuthenticated, async (req, res, next) => {
-    const { image, title, description } = req.body;
+    const { imageUrl, title, description } = req.body;
     const userId = req.payload._id;
     try {
-      const review = await Review.create({ userId: userId, image, title, description });
+      const review = await Review.create({ userId: userId, imageUrl, title, description });
       if(!review) {
         return next(new ErrorResponse('A error ocurred while creating the review', 500));
       } 

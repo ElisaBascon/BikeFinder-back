@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Review = require('../models/Review');
 const ErrorResponse = require('../utils/error');
 const { isAuthenticated } = require('../middlewares/jwt')  
+const fileUploader = require("../config/cloudinary.config");
 
 // @desc    GET all the review
 // @route   GET /api/v1/

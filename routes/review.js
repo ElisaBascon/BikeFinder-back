@@ -19,6 +19,22 @@ router.get('/', isAuthenticated , async (req, res, next) => {
     }
 });
 
+
+// @desc    GET my reviews
+// @route   GET /api/v1/
+// @access  Public
+router.get('/mine', isAuthenticated , async (req, res, next) => {
+  try {
+    const reviews = await Review.find({userId: req.payload._id});
+    if(!reviews.length) {
+      return next(new ErrorResponse('No reviews found', 204));
+    } 
+    res.status(200).json({ data: reviews })
+  } catch (error) {
+      next(error);
+  }
+});
+
 // @desc    GET single review
 // @route   GET /api/v1/
 // @access  Public
@@ -34,6 +50,7 @@ router.get('/:id', isAuthenticated , async (req, res, next) => {
         next(error);
     }
 });
+
 
 // @desc    Upload a picture to Cloudinary
 // @route   POST /api/v1/review/upload

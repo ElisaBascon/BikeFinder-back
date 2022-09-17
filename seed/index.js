@@ -5,7 +5,7 @@ const Bike = require('../models/Bike')
 const bikes = [
   {  
     name: "ORBEA TERRA H",
-    image:" ",
+    image:"https://res.cloudinary.com/ds0q8dpvh/image/upload/v1663413710/bikeFinder/xnltkixvryh6sxttdhmo.png",
     url: "https://www.orbea.com/es-es/bicicletas/carretera/terra/cat/terra-h40",
     description: "The aluminum version is your perfect companion for those days of endless exploration and multi-day getaways, as it offers the most versatility in the Terra family. SHIFTERS Shimano ST-RX400 BRAKE Shimano RX400 Hydraulic Disc SPROCKET Shimano Tiagra HG-500 11-34t 10-Speed ​​REAR DERAILLEUR Shimano RD-RX400 FRONT DERAILLEUR Shimano GRX RX400 CHAIN ​​KMC X10 WHEEL Orbea wheel: Ready GR with 12mm RS4HC TA28 Shimano E-UB70 hubset Vittoria Terrain Dry Gravel G2.0 TNT 700x38c WEIGHT 10.08kg",
     terrain: "all road",
@@ -15,7 +15,7 @@ const bikes = [
   },
   {  
     name: "ORBEA TERRA M20i",
-    image:" ",
+    image:"https://res.cloudinary.com/ds0q8dpvh/image/upload/v1663413710/bikeFinder/xnltkixvryh6sxttdhmo.png",
     url: "https://www.orbea.com/es-es/bicicletas/carretera/terra/cat/terra-m20iteam",
     description: "The Terra M is the sportiest option in the family: fast and light for those adventures on back roads or gravel trails. The carbon frame offers the perfect blend of weight, comfort and strength, while our LOCKR system takes care of storing those essential accessories. SHIMANO ST-RX815FRENE SHIMANO BR-RX810 HYDRAULIC CONFIÑON SHIMANO ULTEGRA HG800 11-34T 11-SPEED CHANG WEIGHT 8.80kg",
     terrain: "intense",
@@ -25,7 +25,7 @@ const bikes = [
   },
   {  
     name: "CANYON GRIZL CFSL7",
-    image:" ",
+    image:"https://res.cloudinary.com/ds0q8dpvh/image/upload/v1663413796/bikeFinder/hipid3fixlcoeumiikwn.png",
     url: "https://www.canyon.com/es-es/bicicletas-gravel/bike-packing/grizl/cf-sl/grizl-cf-sl-7/3244.html?dwvar_3244_pv_rahmenfarbe=GY%2FBK",
     description: "From escapades looking for a sunset to trips of a week. The Grizl CF SL goes where other road bar bikes can't with its durable construction and quality components. If you're ready, so is she. SHIFTERS Shimano GRX RX600 11sBRAKE Shimano RT70SPROCKET Shimano Ultegra HG800 11-34t 11-Speed ​​DERAILLEUR Shimano GRX RX810 GSFRONT DERAILLEUR Shimano GRX RX810CHAIN ​​Shimano HG 601WHEELDT Swiss C 1850 Biwalbe G-mmSchTIRE db Clincher4 Spline db WEIGHT 9.20 kg",
     terrain: "intense",
@@ -35,7 +35,7 @@ const bikes = [
   },
   {  
     name: "CANYON GRAIL 6",
-    image:" ",
+    image:"https://res.cloudinary.com/ds0q8dpvh/image/upload/v1663413796/bikeFinder/hipid3fixlcoeumiikwn.png",
     url: "https://www.canyon.com/en-es/gravel-bikes/all-road/grail/al/grail-6/3092.html?dwvar_3092_pv_rahmenfarbe=YE%2FBK",
     description: "New routes on land and asphalt. The Grail is a very capable, practical gravel bike that's really fun, whatever the weather. The Grail 6 is equipped with a carbon fork and the Shimano GRX400 gravel-specific groupset. SHIFTERS Shimano GRX RX600 11sBRAKE Shimano RT70SPROCKET Shimano Ultegra HG800 11-34t 11-Speed ​​DERAILLEUR Shimano GRX RX400 GSFRONT DERAILLEUR Shimano GRX RX400CHAIN ​​KMC X10-93 10sWHEEL DT Swiss Gravelmm LN DT SH11COVER WEIGHT 9.90kg",
     terrain: "light",
@@ -45,7 +45,7 @@ const bikes = [
   },
   {  
     name: "CANYON GRAIL ON CF 8 eTap",
-    image:" ",
+    image:"https://res.cloudinary.com/ds0q8dpvh/image/upload/v1663413796/bikeFinder/hipid3fixlcoeumiikwn.png",
     url: "https://www.canyon.com/en-es/electric-bikes/electric-gravel-bikes/grail-on/grail-on-cf-8-etap/2553.html?dwvar_2553_pv_rahmenfarbe=GY%2FBK",
     description: "On tarmac or dirt, smooth or rough, this electric gravel bike delivers extraordinary performance no matter where you take it. With SRAM's cable-free Force eTap AXS 1-ring shifting, you'll enjoy your adventures with next-level performance. Bosch Performance Line CX motor Battery SRAM eTap Powerpack 1BY Battery Bosch PowerTube SRAM Force eTap AXS 12s rear derailleur SRAM Force XG-1270 12s 10-36 Cassette FSA CK-702 Gen4 cranks Bosch Generation 4 Boost FSA 44T Spider Chainrings SRAM Force D1 12s Chain WEIGHT 15.90 kg",
     terrain: "all road",
@@ -85,7 +85,7 @@ const bikes = [
   },
   {  
     name: "BMC URS ONE",
-    image:" ",
+    image:"https://res.cloudinary.com/ds0q8dpvh/image/upload/v1663413361/bikeFinder/qj57yngbpyex78hqdnh5.png",
     url: "https://www.bmc-switzerland.com/eu_es/bmc-urs-one-22.html?___from_store=eu_en",
     description: "URS ONE makes the exciting performance and versatility of its premium sibling accessible to more riders answering the call of the wild. Featuring a TCC Gravel-designed Premium Carbon frameset with Gravel+ Geometry. LEVERS Easton EA50 AX BRAKE SRAM APEX HRD-A1 Centerline Rotors (180/160) WTB SL8 Steel Medium REAR DERAILLEUR SRAM APEX 1 HRD DERAILLEUR DT Swiss 370 FRONT DERAILLEUR CHAIN ​​KMC X10-11 speedWHEEL WTB KOM Light i23 TCS, 700c, 28hCOVER WTB Raddler 40mm WEIGHT 9.20 kg", 
     terrain: "all road",

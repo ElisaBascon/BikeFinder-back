@@ -12,6 +12,7 @@ const authRouter = require('./routes/auth');
 const bikeRouter = require('./routes/bike');
 const reviewRouter = require('./routes/review');
 const userRouter = require('./routes/user');
+const favoriteRouter =  require('./routes/favorite');
 
 
 const app = express();
@@ -36,6 +37,7 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/bike', bikeRouter );
 app.use('/api/v1/review', reviewRouter );
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/favorite', favoriteRouter);
 
 
 app.use(errorHandler);

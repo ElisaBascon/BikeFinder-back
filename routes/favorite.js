@@ -5,7 +5,7 @@ const { isAuthenticated } = require('../middlewares/jwt');
 const Favorite = require('../models/Favorite');
 
 // @desc    GET all favorites
-// @route   GET /api/v1/bike
+// @route   GET /api/v1/favorite
 // @access  Public
 router.get('/', isAuthenticated, async (req, res, next) => {
     try {
@@ -20,7 +20,7 @@ router.get('/', isAuthenticated, async (req, res, next) => {
 });
 
 // @desc    Save my Favourites Bikes
-// @route   POST /api/v1/bike
+// @route   POST /api/v1/favorite
 // @access  Public
 router.post('/:bikeId', isAuthenticated, async (req, res, next) => {
   const { bikeId } = req.params;

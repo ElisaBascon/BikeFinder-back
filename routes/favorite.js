@@ -9,7 +9,7 @@ const Favorite = require('../models/Favorite');
 // @access  Public
 router.get('/', isAuthenticated, async (req, res, next) => {
     try {
-      const favorites = await Favorite.find({});
+      const favorites = await Favorite.find({}).populate("bikeId");
       if(favorites.length === 0) {
         return next(new ErrorResponse('No favorites found', 204));
       } 

@@ -1,47 +1,134 @@
-# Project's name REST API
-## Description
+# BikeFinder
+<img src="public/images/background-1.png">
 
-This is a the backend repository for the React application `app's name`.
+## This application is called BikeFinder. It is used for find and compare the best gravel bikes in the market and share the experiences that you live whit your gravel bike.
 
----
+This is a the backend repository for the React application `BikeFinde`.
 
-## Instructions
-
-When cloning the project, change the <code>sample.env</code> file name for <code>.env</code>. The project will run on **PORT 8000**.
-
-Then, run:
-```bash
-npm install
-```
-## Scripts
-
-- To start the project run:
-```bash
-npm run start
-```
-- To start the project in development mode, run:
-```bash
-npm run dev
-```
-- To seed the database, run:
-```bash
-npm run seed
-```
 ---
 
 ## Models
 
-### User
+- Bike
+- Favorite
+- Reviews
+- User
 
+### User
 Users in the database have the following properties:
 
-```js
+```
 {
-  "username": String,
-  "email": String,
-  "hashedPassword": String
+  email: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  hashedPassword: {
+    type: String,
+    required: true
+  },
+  username: {
+    type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  }
+},
+  {
+    timestamps: true
+  }
+```
+### Bike
+Bike in the database have the following properties:
+
+```
+{
+  name: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  image: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  url: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  terrain: {
+    type: String,
+    required: true
+  },
+  biketype: {
+    type: String,
+    required: true
+  },
+  material: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  }
+  
 }
 ```
+### Favorite
+Favorite in the database have the following properties:
+
+```
+{
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
+  bikeId: {
+    type: Schema.Types.ObjectId,
+    ref: "Bike",
+    required: true
+  }
+},
+  {
+    timestamps: true
+  }
+```
+### Reviews
+Review in the database have the following properties:
+
+```
+{
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
+  imageUrl: {
+    type: String,
+    required: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  }
+}
+```
+
 
 ---
 
